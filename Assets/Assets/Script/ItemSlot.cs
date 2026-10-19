@@ -1,8 +1,9 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour
+public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
     // Item Data
     public string itemName;
@@ -13,7 +14,15 @@ public class ItemSlot : MonoBehaviour
     // Item Slot
     [SerializeField] private TMP_Text quantityText;
     [SerializeField] private Image itemImage;
-    
+    [SerializeField] private int MaskStackState = 90;
+    // Slot Management
+    [SerializeField] public GameObject selectedPanel;
+    public bool isItemSelected;
+    public InventoryManager inventoryManager;
+
+    private void Awake(){
+        inventoryManager = FindObjectOfType<InventoryManager>();
+    }
 
     private void Start()
 {
@@ -24,19 +33,82 @@ public class ItemSlot : MonoBehaviour
     }
 }
 
-   public void AddItem(ItemDetails item)
+    public void AddItem(ItemDetails item)
     {
+        if (item == null) return;
+
         itemName = item.ItemName;
-        itemQuantity = item.Quantity;
+        itemQuantity = Mathf.Min(item.Quantity, MaskStackState);
         itemIcon = item.ItemIcon;
         isFull = true;
 
         quantityText.text = itemQuantity.ToString();
         quantityText.enabled = true;
-        itemImage.sprite = itemIcon;
 
         itemImage.sprite = itemIcon;
         itemImage.enabled = itemIcon != null;
     }
+
+    public bool CanStackWith(string otherItemName)
+    {
+        return isFull
+        && itemName == otherItemName
+        && itemQuantity < MaskStackState;
+}
+
+    public void AddItemQuantity(int quantity)
+    {
+        itemQuantity = Mathf.Min(
+        itemQuantity + quantity,
+        MaskStackState
+    );
+
+    isFull = itemQuantity > 0;
+
+    quantityText.text = itemQuantity.ToString();
+    quantityText.enabled = true;
+
+    itemImage.sprite = itemIcon;
+    itemImage.enabled = itemIcon != null;
+
+    }
+
     
+public void OnPointerClick(PointerEventData eventData)
+{
+    if (eventData.button == PointerEventData.InputButton.Left)
+    {
+        LeftClick();
+    }
+
+    if (eventData.button == PointerEventData.InputButton.Right)
+    {
+        RightClick();
+    }
+}
+
+private void LeftClick()
+{
+    Debug.Log("Left Clicked on " + itemName);
+
+    if (inventoryManager == null)
+    {
+        Debug.LogError("InventoryManager belum ditemukan!", this);
+        return;
+    }
+
+    inventoryManager.DeselectAllSlots();
+
+    if (selectedPanel != null)
+    {
+        selectedPanel.SetActive(true);
+        isItemSelected = true;
+    }
+}
+
+private void RightClick()
+{
+    Debug.Log("Right Clicked on " + itemName);
+}
+
 }

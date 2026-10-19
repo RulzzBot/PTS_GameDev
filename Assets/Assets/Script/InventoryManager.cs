@@ -99,6 +99,7 @@ public class InventoryManager : MonoBehaviour, GrabableItem
         for (int i = 0; i < itemSlot.Length; i++)
         {
             itemSlot[i] = Instantiate(slotPrefab, grid.transform);
+            itemSlot[i].inventoryManager = this; // Hubungkan InventoryManager ke setiap ItemSlot
         }
     }
 
@@ -123,6 +124,18 @@ public class InventoryManager : MonoBehaviour, GrabableItem
             return;
         }
 
+        for(int i = 0; i < itemSlot.Length; i++)
+        {
+            if (itemSlot[i] == null)
+                continue;
+
+            if (itemSlot[i].CanStackWith(item.ItemName))
+            {
+                itemSlot[i].AddItemQuantity(item.Quantity);
+                return;
+            }
+        }
+
         for (int i = 0; i < itemSlot.Length; i++)
         {
             if (itemSlot[i] == null)
@@ -138,5 +151,14 @@ public class InventoryManager : MonoBehaviour, GrabableItem
         Debug.LogWarning(
             "Inventory penuh, item '" + item.ItemName + "' tidak dapat ditambahkan."
         );
+    }
+
+    public void DeselectAllSlots()
+    {
+        foreach (ItemSlot slot in itemSlot)
+        {
+            slot.selectedPanel.SetActive(false);
+            slot.isItemSelected = false;
+        }
     }
 }

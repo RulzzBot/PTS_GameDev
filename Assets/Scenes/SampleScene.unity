@@ -881,6 +881,7 @@ GameObject:
   - component: {fileID: 390839403}
   - component: {fileID: 390839402}
   - component: {fileID: 390839401}
+  - component: {fileID: 390839404}
   m_Layer: 0
   m_Name: Coin (3)
   m_TagString: Coin
@@ -997,6 +998,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &390839404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390839400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0864f1b4f7e19f042bf463d5bc35872d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  ItemDetails: {fileID: 11400000, guid: 4035cfc2ef0293e4c95d0b5695585a1f, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5574,6 +5588,7 @@ GameObject:
   - component: {fileID: 1261094481}
   - component: {fileID: 1261094480}
   - component: {fileID: 1261094479}
+  - component: {fileID: 1261094482}
   m_Layer: 0
   m_Name: Coin (4)
   m_TagString: Coin
@@ -5690,6 +5705,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1261094482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261094478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0864f1b4f7e19f042bf463d5bc35872d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  ItemDetails: {fileID: 11400000, guid: 4035cfc2ef0293e4c95d0b5695585a1f, type: 2}
 --- !u!1 &1278698645
 GameObject:
   m_ObjectHideFlags: 0
@@ -6109,6 +6137,7 @@ GameObject:
   - component: {fileID: 1587682934}
   - component: {fileID: 1587682933}
   - component: {fileID: 1587682932}
+  - component: {fileID: 1587682935}
   m_Layer: 0
   m_Name: Coin (2)
   m_TagString: Coin
@@ -6225,6 +6254,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1587682935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587682931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0864f1b4f7e19f042bf463d5bc35872d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  ItemDetails: {fileID: 11400000, guid: 4035cfc2ef0293e4c95d0b5695585a1f, type: 2}
 --- !u!1 &1609685943
 GameObject:
   m_ObjectHideFlags: 0
@@ -6254,7 +6296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3c835ee9461664585a8d16ac3084f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
-  InventoryCanvas: {fileID: 0}
+  InventoryCanvas: {fileID: 1683771952}
   slotCount: 16
   itemSlot: []
 --- !u!4 &1609685945
@@ -6986,6 +7028,7 @@ GameObject:
   - component: {fileID: 1892433080}
   - component: {fileID: 1892433079}
   - component: {fileID: 1892433078}
+  - component: {fileID: 1892433081}
   m_Layer: 0
   m_Name: Coin (1)
   m_TagString: Coin
@@ -7102,6 +7145,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1892433081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892433077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0864f1b4f7e19f042bf463d5bc35872d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  ItemDetails: {fileID: 11400000, guid: 4035cfc2ef0293e4c95d0b5695585a1f, type: 2}
 --- !u!1 &1909270011
 GameObject:
   m_ObjectHideFlags: 0
